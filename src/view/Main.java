@@ -27,6 +27,9 @@ public class Main {
             case 3:
                 searchProduct();
                 break;
+            case 0:
+                System.exit(0);
+                break;
 
 
         }
