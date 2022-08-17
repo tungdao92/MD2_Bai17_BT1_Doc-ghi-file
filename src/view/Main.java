@@ -53,6 +53,7 @@ public class Main {
             productController.creatProduct(product);
             System.out.println("Creat success!");
             productController.showListProduct();
+            showListProduct();
             System.out.println("Nhập vào phím bất kì để tiếp tục - Nhập vào Quit để thoát: ");
             String backMenu = Config.scanner().nextLine();
             if (backMenu.equalsIgnoreCase("quit")) {
@@ -78,8 +79,13 @@ public class Main {
         System.out.println("Enter ID Product");
         int id = Config.scanner().nextInt();
         List<Product> products =productController.searchProduct(id);
-        if (productController.searchProduct(id) == null) {
+        if (productController.searchProduct(id) != null) {
             System.out.println("ID does not exist");
+            System.out.println("Nhập vào Quit để thoát: ");
+            String backMenu = Config.scanner().nextLine();
+            if(backMenu.equalsIgnoreCase("quit")){
+                new Main();
+            }
         } else {
             System.out.println("-----Stt-----Name-----Manufacturer-----Price-----Describe-----");
             for (int i = 0; i < products.size(); i++) {
